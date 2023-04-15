@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mall
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: mall
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    network_mode: bridge
+  redis:
+    image: "redis:latest"
+    container_name: "redis-mall"
+    ports:
+      - "6379:6379"
