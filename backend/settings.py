@@ -45,6 +45,12 @@ INSTALLED_APPS = [
     'django_celery_beat',
     'rest_framework',
     'django_filters',
+    'brand',
+    'electronic',
+    'order',
+    'restaurant',
+    'shipment',
+    'account'
 ]
 
 SITE_ID = 1

@@ -23,6 +23,8 @@ from rest_framework.documentation import include_docs_urls
 urlpatterns = [
     path('docs/', include_docs_urls(title='', public=False)),
     path('admin/', admin.site.urls),
+    path('v1/account/', include(('account.urls', 'account'), namespace='accounts-api')),
+    path('v1/clothing/', include(('brand.urls', 'brand'), namespace='brand-api')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
