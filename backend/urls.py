@@ -25,7 +25,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('v1/account/', include(('account.urls', 'account'), namespace='accounts-api')),
     path('v1/clothing/', include(('brand.urls', 'brand'), namespace='brand-api')),
-    path('v1/electronic/', include(('electronic.urls', 'brand'), namespace='electronic-api')),
+    path('v1/electronic/', include(('electronic.urls', 'electronic'), namespace='electronic-api')),
+    path('v1/order/', include(('order.urls', 'order'), namespace='order-api')),
+    path('v1/restaurant/', include(('restaurant.urls', 'restaurant'), namespace='restaurant-api')),
+    path('v1/shipment/', include(('shipment.urls', 'shipment'), namespace='shipment-api')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
