@@ -18,5 +18,9 @@ class ClothingItem(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to="clothing", null=True, blank=True)
 
+    @property
+    def brand_name(self):
+        return self.brand.name if self.brand else ""
+
     def __str__(self):
         return self.name
