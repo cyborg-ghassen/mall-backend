@@ -11,6 +11,7 @@ class BrandSerializer(serializers.ModelSerializer):
 
 class ClothingItemSerializer(serializers.ModelSerializer):
     brand_name = serializers.SerializerMethodField()
+    gender_display = serializers.SerializerMethodField()
 
     class Meta:
         model = ClothingItem
@@ -19,3 +20,7 @@ class ClothingItemSerializer(serializers.ModelSerializer):
     @staticmethod
     def get_brand_name(obj):
         return obj.brand_name
+
+    @staticmethod
+    def get_gender_display(obj):
+        return obj.get_gender_display()
