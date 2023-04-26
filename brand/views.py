@@ -13,3 +13,10 @@ class BrandViewSet(viewsets.ModelViewSet):
 class ClothingViewSet(viewsets.ModelViewSet):
     queryset = ClothingItem.objects.all()
     serializer_class = ClothingItemSerializer
+
+    def get_queryset(self):
+        query = super().get_queryset()
+        if self.request.GET.get("brand"):
+            query = query.filter(brand=self.request.GET.get("brand"))
+
+        return query
