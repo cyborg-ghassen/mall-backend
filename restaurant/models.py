@@ -6,6 +6,7 @@ class Restaurant(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
     logo = models.ImageField(upload_to='restaurants/logos/')
+    slug = models.CharField(max_length=80, null=True, blank=True)
 
     def __str__(self):
         return self.name
