@@ -18,5 +18,7 @@ class ClothingViewSet(viewsets.ModelViewSet):
         query = super().get_queryset()
         if self.request.GET.get("brand"):
             query = query.filter(brand=self.request.GET.get("brand"))
+        if self.request.GET.get("gender"):
+            query = query.filter(gender=self.request.GET.get("gender"))
 
         return query
