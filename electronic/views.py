@@ -14,6 +14,13 @@ class ItemViewSet(viewsets.ModelViewSet):
     queryset = ElectronicsItem.objects.all()
     serializer_class = ElectronicsItemSerializer
 
+    def get_queryset(self):
+        query = super().get_queryset()
+        if self.request.GET.get("category"):
+            query = query.filter(category=self.request.GET.get("category"))
+
+        return query
+
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
