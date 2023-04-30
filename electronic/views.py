@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from .models import ElectronicsShop, ElectronicsItem
-from .serializers import ElectronicsShopSerializer, ElectronicsItemSerializer
+from .models import ElectronicsShop, ElectronicsItem, Category
+from .serializers import ElectronicsShopSerializer, ElectronicsItemSerializer, CategorySerializer
 
 
 # Create your views here.
@@ -13,3 +13,8 @@ class ShopViewSet(viewsets.ModelViewSet):
 class ItemViewSet(viewsets.ModelViewSet):
     queryset = ElectronicsItem.objects.all()
     serializer_class = ElectronicsItemSerializer
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
